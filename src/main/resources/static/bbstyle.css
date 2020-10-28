@@ -1,0 +1,52 @@
+body {
+    background-color: white;
+    text-align: center;
+}
+.header {
+    margin: 20px;
+}
+.bg-custom {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+}
+.nav-link{
+    color: black;
+    align-items: center;
+}
+/*.header {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+.header logo {
+}
+.header title {
+}
+.nav ul {
+    list-style: none;
+}
+
+.header ul li{
+    list-style: none;
+    float: left;
+    padding: 10px 70px;
+}
+
+.nav ul li {
+    list-style: none;
+}
+.nav ul li a {
+    text-decoration: none;
+    float: left;
+    display: block;
+    padding: 10px 40px;
+    color: black;
+}
+.nav ul li a:hover {
+    color: #d5face;
+}
+*/
