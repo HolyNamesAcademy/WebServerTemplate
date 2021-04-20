@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${department + ' Department'}" />
+
+</head>
+
+<title> Glass Dome </title>
+<style>
+        body {
+            color:black;
+            font-family: Georgia, serif;
+            background-color: ghostwhite;
+        }
+        p{
+            color:maroon;
+            margin left: 10px;
+        }
+        h1{
+            text-align: center;
+            color: white;
+
+            font-size: 130px;
+            text-shadow: 2px 2px 4px #000000;
+            background-image: url("../static/HNA2.jpg");
+
+        }
+        h2{
+            margin left:40px;
+        }
+        h3{
+            margin left: 40px;
+        }
+        .flex-container {
+        display: flex;
+        flex-flow: row wrap;
+        background-color: white;
+        justify-content: center;
+        }
+
+        .flex-container > div {
+          background-color: maroon;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+            flex-basis: 300px;
+            height: 250px;
+            color: white;
+            text-align: center;
+
+                }
+
+    a:link, a:visited {
+    background-color: maroon;
+    color: white;
+    text-size: 15px;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    }
+
+    img{
+        border-radius: 50%;
+        width: 250px;
+        height: 200 px;
+    }
+
+  }
+
+</style>
+<body>
+
+<h1 th:text="${department + ' Department'}" />
+
+<!-- https://www.baeldung.com/thymeleaf-arrays
+-->>
+
+</h1>
+<!--
+this is what loops look like in thymeleaf-
+
+    teacher = individual teacher name-String
+    teachers = the arrayList of teacher names from Julia's program
+    In the brackets, create a div/button for each of them
+-->
+
+<tr th:each="teacher: ${teachers}">
+
+    <td th:text="${teacher}" />
+    <div> class="flex-container"
+        <br>
+        <a href="/Teacher?teacher=Dawson" >
+            <!--
+            <img border="2" alt=${teacher} src= "../static/Projects Pics/KimDawson.jpg" width="50" height="200">
+        -->
+        </a>
+    </div>
+
+</tr>
+
+ <div class="flex-container">
+    <div>Kim Dawson
+        <br>
+         <a href="/Teachers" >
+            <img border="2" alt="Dawson" src= "../static/Projects Pics/KimDawson.jpg" width="50" height="200">
+        </a>
+    </div>
+    <div> Kim Draggoo
+        <br>
+        <a href="/Teachers" >
+            <img border="2" alt="Draggoo" src="../static/Projects Pics/KimberlyDraggoo.jpg" width="50" height="200">
+        </a>
+    </div>
+    <div> Anne Gala
+        <br>
+        <a href="/Teachers" >
+            <img border="2" alt="Gala" src="../static/Projects Pics/AnneGala.jpg" width="50" height="200">
+        </a>
+    </div>
+    <div> David Karp
+        <br>
+        <a href="/Teachers" >
+            <img border="2" alt="Karp" src="../static/Projects Pics/DavidKarp.jpg" width="50" height="200">
+        </a>
+    </div>
+    <div>Lauren Karp
+        <br>
+        <a href="/Teachers" >
+            <img border="2" alt="Karp" src="../static/Projects Pics/LaurenKarp.jpg" width="50" height="200">
+        </a>
+    </div>
+    <div>Kristin Kuzmanich
+        <br>
+        <a href="/Teachers" >
+            <img border="2" alt="Kuzmanich" src="../static/Projects Pics/KristinKuzmanich.jpg"width="50" height="200">
+        </a>
+    </div>
+    <div>April Little
+        <br>
+        <a href="/Teachers" >
+            <img border="2" alt="Little" src="../static/Projects Pics/AprilLittle.jpg" width="50" height="200">
+        </a>
+    </div>
+    <div>Matt Merlino
+        <br>
+        <a href="/Teachers" >
+            <img border="2" alt="Merlino" src="../static/Projects Pics/MattMerlino.jpg" width="50" height="200">
+        </a>
+    </div>
+    <div>Rebecca Sager
+        <br>
+        <a href="/Teachers" >
+            <img border="2" alt="Sager" src="../static/Projects Pics/BeccaSager.jpg" width="50" height="200">
+        </a>
+    </div>
+   </div>
+
+<!---
+- Put a bunch of staff head shots in the static folder
+- Make image of teacher the clickable page button (rather than just the word profile)
+- give it a shade change when you hover over it
+
+<a href="/Teachers" target="_blank">Dawson</a>
+<a href="/Teachers" target="_blank">Draggoo</a>
+<a href=/Teachers" target="_blank">Gala</a>
+<a href="/Teachers" target="_blank">Karp</a>
+<a href="/Teachers" target="_blank">Karp</a>
+<a href="/Teachers" target="_blank">Kuzmanich</a>
+<a href="/Teachers"  target="_blank">Little</a>
+<a href="/Teachers" target="_blank">Merlino</a>
+<a href="/Teachers" target="_blank">Sager</a>
+-->
+
+<!-- why does it say target? should it say class = "button" like my other ones?
+-->
+
+</body>
+</html>
