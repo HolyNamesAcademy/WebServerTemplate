@@ -1,0 +1,28 @@
+/* styles that are based on id have the highest priority and override other styles,
+  styles based on class are the next highest priority, and finally styles based on the element */
+
+/* these styles apply to the body element and everything inside it */
+body {
+    background-color: #719da6;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* these styles apply to all p elements */
+p {
+    font-size: 12px;
+}
+
+/* these styles apply to any elements with the class "greeting" */
+.greeting {
+    color: #0d4570;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 200px;
+}
+
+/* these styles apply to any elements with the id "age" */
+#age {
+    color: #316085;
+    font-size: 48px;
+    text-align: center;
+}

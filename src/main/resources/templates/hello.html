@@ -1,10 +1,35 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <!-- The title that appears on the tab in your browser -->
+    <title>Hello</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- use the styles in the file src/main/resources/static/hello.css -->
+    <link rel="stylesheet" th:href="@{/hello.css}"/>
 </head>
 <body>
-    <p th:text="'Hello, ' + ${name} + '!'" />
+    <p class="greeting" th:text="'Hello, ' + ${name} + '!'" />
+    <p class="greeting" id="age" th:text="'You are ' + ${age} + ' years old!'" />
+
+    <!-- use the styles in the file src/main/resources/static/confetti.js -->
+    <script src="./confetti.js"></script>
+
+    <!-- the browser will run this javascript when it loads this page - needed for the confetti -->
+    <script>
+        const start = () => {
+            setTimeout(function() {
+                confetti.start()
+            }, 100); // when the confetti starts (1000 = 1 sec)
+        };
+
+        const stop = () => {
+            setTimeout(function() {
+                confetti.stop()
+            }, 10000);
+        };
+
+        start();
+        stop();
+    </script>
 </body>
 </html>

@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
+import java.util.Random;
+
 @Component
 public class SqlDB {
     private String hostName;
@@ -24,5 +26,17 @@ public class SqlDB {
     }
 
     // TODO: Add methods to talk to your DB here
+
+    // method to get a user's age - doesn't actually talk to the database, this is just a demo
+    public static int getAge(String user) {
+        if (user.equals("Clare")) {
+            return 32;
+        } else if (user.equals("Alfie")) {
+            return 3;
+        } else {
+            Random r = new Random();
+            return r.nextInt(101);
+        }
+    }
 
 }
