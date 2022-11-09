@@ -13,6 +13,17 @@ public class Post {
         this.Caption = Caption;
         this.PhotoUrl = PhotoUrl;
     }
+    public Post(){
+        PostId = 0;
+        PlantId = 0;
+        Age = 0;
+        PlantName = "";
+        Species = "";
+        Status = "";
+        NameOfUser = "";
+        Caption = "";
+        PhotoUrl = "";
+    }
     // all the get methods
     public int getPostID() {
         return PostId;
