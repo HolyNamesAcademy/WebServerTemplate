@@ -21,4 +21,7 @@ public class MainController {
 		model.addAttribute("name", name);
 		return "hello";
 	}
+
+	@GetMapping("/feed")
+	public String feed(){ return "feed"; }
 }
