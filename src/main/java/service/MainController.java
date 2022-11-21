@@ -20,5 +20,15 @@ public class MainController {
 	public String hello(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
 		model.addAttribute("name", name);
 		return "hello";
+
+
 	}
+	@PostMapping("/api")
+	public String index() {
+		return "index";
+	}
+
+	@PostMapping("/api")
+	HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+	public respHttpResponse<String> getResponse() {return response;}
 }
