@@ -21,4 +21,10 @@ public class MainController {
 		model.addAttribute("name", name);
 		return "hello";
 	}
+
+	public void uploadPost() {
+		Post test = new Post(null, 600, 16, "Penguins", "Left", "Dead", "Sophia", "Penguins!", "https://flowermag.com/wp-content/uploads/2018/02/shasta-daisies-becky-1000x669.jpg");
+
+		SqlDB.uploadPost(test);
+	}
 }
