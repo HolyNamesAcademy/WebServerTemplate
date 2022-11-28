@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "type": "java",
             "name": "Attach Spring",
@@ -15,7 +16,8 @@
             "type": "java",
             "name": "Launch Spring",
             "request": "launch",
-            "mainClass": "service.WebServer"
+            "mainClass": "service.WebServer",
+            "env": {"DB_HOSTNAME": "hnaprojects.database.windows.net", "DB_DB_NAME": "Plantbook", "DB_USER": "hna-admin", "DB_PASSWORD": "HolyNames123"}
         }
     ]
 }

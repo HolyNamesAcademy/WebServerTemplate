@@ -1,7 +1,9 @@
 package service;
+
 public class Post {
     private int PostId, PlantId, Age;
     private String PlantName, Species, Status, NameOfUser, Caption, PhotoUrl;
+
     public Post(int PostId, int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
         this.PostId = PostId;
         this.PlantId = PlantId;
@@ -13,6 +15,7 @@ public class Post {
         this.Caption = Caption;
         this.PhotoUrl = PhotoUrl;
     }
+
     // all the get methods
     public int getPostID() {
         return PostId;
@@ -41,6 +44,7 @@ public class Post {
     public String getPhotoUrl() {
         return PhotoUrl;
     }
+    
     // all the set methods
     public void getPostID(int PostId) {
         this.PostId = PostId;
@@ -70,5 +74,3 @@ public class Post {
         this.PhotoUrl = PhotoUrl;
     }
 }
-
-

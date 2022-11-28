@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import java.service.Post;
 
 @Controller
 public class MainController {
@@ -25,6 +26,6 @@ public class MainController {
 	public void uploadPost() {
 		Post test = new Post(null, 600, 16, "Penguins", "Left", "Dead", "Sophia", "Penguins!", "https://flowermag.com/wp-content/uploads/2018/02/shasta-daisies-becky-1000x669.jpg");
 
-		SqlDB.uploadPost(test);
+		sqlDB.uploadPost(test);
 	}
 }

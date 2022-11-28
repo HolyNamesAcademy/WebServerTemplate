@@ -3,7 +3,7 @@ package service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
-import java.util.ArrayList;
+import java.util.List;
 import java.sql.*;
 
 @Component
@@ -21,7 +21,7 @@ public class SqlDB {
         user = env.getProperty("db.user");
         password = env.getProperty("db.password");
 
-        connectionUrl = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
+        connectionUrl = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true"
                 + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
     }
 
@@ -33,10 +33,12 @@ public class SqlDB {
     public static void uploadPost(Post post){
         Connection connect = DriverManger.getConnection(url);
         try {
+            // creating the query
             String query1 = "INSERT INTO Post ([PlantID], [Age], [PlantName], [Species], [Status], [NameOfUser], [Caption], [PhotoURL])";
             String value = getValues(post);
             query1 += "VALUES (" + value + ")";
 
+            // adding the post to the table
             Statement st = connection.createStatement();
             st.execute(query1, Statement.RETURN_GENERATED_KEYS);
         } catch (Exception e) {
