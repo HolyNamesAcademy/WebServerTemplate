@@ -16,6 +16,18 @@ public class Post {
         this.PhotoUrl = PhotoUrl;
     }
 
+    public Post(int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
+        PostId = 0;
+        this.PlantId = PlantId;
+        this.Age = Age;
+        this.PlantName = PlantName;
+        this.Species = Species;
+        this.Status = Status;
+        this.NameOfUser = NameOfUser;
+        this.Caption = Caption;
+        this.PhotoUrl = PhotoUrl;
+    }
+
     // all the get methods
     public int getPostID() {
         return PostId;
@@ -44,7 +56,7 @@ public class Post {
     public String getPhotoUrl() {
         return PhotoUrl;
     }
-    
+
     // all the set methods
     public void getPostID(int PostId) {
         this.PostId = PostId;

@@ -3,7 +3,7 @@ package service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
-import java.util.List;
+import java.util.ArrayList;
 import java.sql.*;
 
 @Component
@@ -30,8 +30,8 @@ public class SqlDB {
      * Take created post information and add it into the database
      * @param line - 
      */ 
-    public static void uploadPost(Post post){
-        Connection connect = DriverManger.getConnection(url);
+    public void uploadPost(Post post) {
+        Connection connect = DriverManager.getConnection(connectionUrl);
         try {
             // creating the query
             String query1 = "INSERT INTO Post ([PlantID], [Age], [PlantName], [Species], [Status], [NameOfUser], [Caption], [PhotoURL])";
@@ -39,7 +39,7 @@ public class SqlDB {
             query1 += "VALUES (" + value + ")";
 
             // adding the post to the table
-            Statement st = connection.createStatement();
+            Statement st = connect.createStatement();
             st.execute(query1, Statement.RETURN_GENERATED_KEYS);
         } catch (Exception e) {
             System.err.println("Got an error in tags query! ");
@@ -54,19 +54,19 @@ public class SqlDB {
 
     private String getValues(Post post) {
         ArrayList<String> temp = new ArrayList<>();
-        temp.add(post.getPlantID);
-        temp.add(post.getAge);
-        temp.add("N'" + post.getPlantName + "'");
-        temp.add("N'" + post.getSpecies + "'");
-        temp.add("N'" + post.getStatus + "'");
-        temp.add("N'" + post.getNameOfUser + "'");
-        temp.add("N'" + post.getCaption + "'");
-        temp.add("N'" + post.getPhotoUrl + "'");
+        temp.add(Integer.toString(post.getPlantID()));
+        temp.add(Integer.toString(post.getAge()));
+        temp.add("N'" + post.getPlantName() + "'");
+        temp.add("N'" + post.getSpecies() + "'");
+        temp.add("N'" + post.getStatus() + "'");
+        temp.add("N'" + post.getNameOfUser() + "'");
+        temp.add("N'" + post.getCaption() + "'");
+        temp.add("N'" + post.getPhotoUrl() + "'");
 
         String result = "";
-        for (int i = 0; i < temp.length(); i++) {
-            result += data;
-            if (i != temp.length - 2) {
+        for (int i = 0; i < temp.size(); i++) {
+            result += temp.get(i);
+            if (i != temp.size() - 2) {
                 result += ", ";
             }
         }
