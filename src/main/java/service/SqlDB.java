@@ -31,8 +31,10 @@ public class SqlDB {
      * @param line - 
      */ 
     public void uploadPost(Post post) {
-        Connection connect = DriverManager.getConnection(connectionUrl);
+        Connection connect = null;
         try {
+            connect = DriverManager.getConnection(connectionUrl);
+
             // creating the query
             String query1 = "INSERT INTO Post ([PlantID], [Age], [PlantName], [Species], [Status], [NameOfUser], [Caption], [PhotoURL])";
             String value = getValues(post);
