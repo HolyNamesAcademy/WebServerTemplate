@@ -28,9 +28,6 @@ public class MainController {
 		return "index";
 	}
 
-	//HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-	//public respHttpResponse<String> getResponse() {return response;}
-
 	@PostMapping("/api")
 	public String callAPI() {
 		plantAPi.api();
@@ -43,7 +40,8 @@ public class MainController {
 		xmlHttp.send( https://house-plants.p.rapidapi.com/common/coralberry );
 		return xmlHttp.responseText;
 	}
-
-	@PostMapping("/api")
+	HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+	public respHttpResponse<String> getResponse() {return response;}
+	 */
 
 }
