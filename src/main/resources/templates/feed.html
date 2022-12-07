@@ -31,8 +31,8 @@
         margin-left: auto;
         }
 
-        image {
-        margin-top:0
+        img {
+        margin-top:0;
         margin-bottom:5;
         margin-right: 25px;
         margin-left: auto;
@@ -50,7 +50,8 @@
 
         .flex-container {
         display: flex;
-        height: 600px;
+        height: content;
+        flex-direction: row;
         //flex-flow: row wrap;
         flex-basis:content;
         justify-content: space-around;
@@ -61,14 +62,14 @@
 
         .flex-container > div {
         background-color: #f1f1f1;
-        width: 150px;
+        width: 30%;
         margin: 10px;
         text-align: center;
         line-height: 75px;
         font-size: 30px;
 }
     </style>
-//</head>
+    //</head>
 //< style="height:1500px">
 
 
@@ -89,10 +90,11 @@
         </ul>
     </div>
 </nav>
-    <img src="https://succulentsplanet.com/wp-content/uploads/2021/01/Copy-of-Copy-of-Untitled-1.jpg" alt="planty" width="500">
+<img src="https://succulentsplanet.com/wp-content/uploads/2021/01/Copy-of-Copy-of-Untitled-1.jpg" alt="planty">
 <div class="flex-container">
     <div>  <h2> Post 1 </h2>
-        <image> <img src="https://succulentsplanet.com/wp-content/uploads/2021/01/Copy-of-Copy-of-Untitled-1.jpg" alt="planty" width="500"></image>
+        <img src="https://succulentsplanet.com/wp-content/uploads/2021/01/Copy-of-Copy-of-Untitled-1.jpg" alt="planty">
+        <body> Forgot to water him for 3 months :/</body>
     </div>
     <div> <h2> Post 2 </h2></div>
     <div> <h2> Post 3 </h2></div>
