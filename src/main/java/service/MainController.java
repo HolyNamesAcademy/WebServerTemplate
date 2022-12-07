@@ -23,12 +23,27 @@ public class MainController {
 
 
 	}
-	@PostMapping("/api")
+	@PostMapping("/")
 	public String index() {
 		return "index";
 	}
 
+	//HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+	//public respHttpResponse<String> getResponse() {return response;}
+
 	@PostMapping("/api")
-	HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-	public respHttpResponse<String> getResponse() {return response;}
+	public String callAPI() {
+		plantAPi.api();
+	}
+
+	/* function httpGet(Url)
+	{
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "GET", https://house-plants.p.rapidapi.com/common/coralberry, false ); // false for synchronous request
+		xmlHttp.send( https://house-plants.p.rapidapi.com/common/coralberry );
+		return xmlHttp.responseText;
+	}
+
+	@PostMapping("/api")
+
 }
