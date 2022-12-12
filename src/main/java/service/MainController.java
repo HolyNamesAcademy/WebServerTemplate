@@ -24,10 +24,11 @@ public class MainController {
 	}
 
 	@GetMapping("/upload") // change to post later
-	public void uploadPost() {
+	public String uploadPost() {
 		// Post(int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl)
 		Post test = new Post(600, 16, "Penguins", "Left", "Dead", "Sophia", "Penguins!", "https://flowermag.com/wp-content/uploads/2018/02/shasta-daisies-becky-1000x669.jpg");
 
 		sqlDB.uploadPost(test);
+		return "index";
 	}
 }
