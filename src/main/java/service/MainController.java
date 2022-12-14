@@ -23,15 +23,6 @@ public class MainController {
 
 
 	}
-	@PostMapping("/")
-	public String index() {
-		return "index";
-	}
-
-	@PostMapping("/api")
-	public String callAPI() {
-		plantAPi.api();
-	}
 
 	/* function httpGet(Url)
 	{
