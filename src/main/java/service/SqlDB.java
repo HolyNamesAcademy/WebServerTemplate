@@ -37,10 +37,8 @@ public class SqlDB {
 
             // creating the query
             String query1 = "INSERT INTO Post ([PostID], [PlantID], [Age], [PlantName], [Species], [Status], [NameOfUser], [Caption], [PhotoURL])";
-            System.out.println(query1);
             String value = getValues(post);
             query1 += " VALUES (" + value + ")";
-            System.out.println(query1);
 
             // adding the post to the table
             Statement st = connect.createStatement();
@@ -52,8 +50,49 @@ public class SqlDB {
     }
 
     public ArrayList<Post> viewPosts() {
+        Connection connect = null;
+
         ArrayList<Post> posts = new ArrayList<>();
+
+        try {
+            connect = DriverManager.getConnection(connectionUrl);
+
+        } catch (Exception e) {
+            System.err.println("Got an error in tags query! ");
+            System.err.println(e.getMessage());
+        }
+
         return posts;
+    }
+
+    public void deletePosts(Post post) {
+        Connection connect = null;
+        try {
+            connect = DriverManager.getConnection(connectionUrl);
+
+            // creating the query
+            String query1 = "DELETE FROM Post WHERE PostID=" + post.getPostID() + 
+            ", PlantID=" + post.getPlantID() + ", Age=" + post.getAge() + 
+            ", PlantName=" + post.getPlantName() + " Species, Status, NameOfUser, Caption, PhotoURL";
+
+            // deleting the post to the table
+            Statement st = connect.createStatement();
+            st.execute(query1, Statement.RETURN_GENERATED_KEYS);
+        } catch (Exception e) {
+            System.err.println("Got an error in tags query! ");
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public void<Post> updatePosts() {
+        Connection connect = null;
+        try {
+            connect = DriverManager.getConnection(connectionUrl);
+
+        } catch (Exception e) {
+            System.err.println("Got an error in tags query! ");
+            System.err.println(e.getMessage());
+        }
     }
 
     private String getValues(Post post) {
