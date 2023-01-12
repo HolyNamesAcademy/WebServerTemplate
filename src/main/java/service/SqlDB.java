@@ -25,7 +25,6 @@ public class SqlDB {
                 + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
     }
 
-    // TODO: Add methods to talk to your DB here
     /*
      * Take created post information and add it into the database
      * @param line - 
@@ -36,13 +35,16 @@ public class SqlDB {
             connect = DriverManager.getConnection(connectionUrl);
 
             // creating the query
-            String query1 = "INSERT INTO Post ([PostID], [PlantID], [Age], [PlantName], [Species], [Status], [NameOfUser], [Caption], [PhotoURL])";
+            String query1 = "INSERT INTO Post ([PlantID], [Age], [PlantName], [Species], [Status], [NameOfUser], [Caption], [PhotoURL])";
             String value = getValues(post);
-            query1 += " VALUES (" + value + ")";
+            query1 += "VALUES (" + value + ");";
 
             // adding the post to the table
             Statement st = connect.createStatement();
             st.execute(query1, Statement.RETURN_GENERATED_KEYS);
+
+            //TODO: get PostID and assigned it
+            
         } catch (Exception e) {
             System.err.println("Got an error in tags query! ");
             System.err.println(e.getMessage());
@@ -84,7 +86,7 @@ public class SqlDB {
         }
     }
 
-    public void<Post> updatePosts() {
+    public void updatePosts() {
         Connection connect = null;
         try {
             connect = DriverManager.getConnection(connectionUrl);
@@ -97,15 +99,14 @@ public class SqlDB {
 
     private String getValues(Post post) {
         ArrayList<String> temp = new ArrayList<>();
-        temp.add(Integer.toString(post.getPostID()));
         temp.add(Integer.toString(post.getPlantID()));
         temp.add(Integer.toString(post.getAge()));
-        temp.add("N'" + post.getPlantName() + "'");
-        temp.add("N'" + post.getSpecies() + "'");
-        temp.add("N'" + post.getStatus() + "'"); 
-        temp.add("N'" + post.getNameOfUser() + "'");
-        temp.add("N'" + post.getCaption() + "'");
-        temp.add("N'" + post.getPhotoUrl() + "'");
+        temp.add(post.getPlantName() + "'");
+        temp.add(post.getSpecies() + "'");
+        temp.add(post.getStatus() + "'"); 
+        temp.add(post.getNameOfUser() + "'");
+        temp.add(post.getCaption() + "'");
+        temp.add(post.getPhotoUrl() + "'");
 
         String result = "";
         for (int i = 0; i < temp.size(); i++) {
