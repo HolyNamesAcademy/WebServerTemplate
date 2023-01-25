@@ -1,7 +1,8 @@
 package service;
 
 public class Post {
-    private int PostId, PlantId, Age;
+    private Integer PostId;
+    private int PlantId, Age;
     private String PlantName, Species, Status, NameOfUser, Caption, PhotoUrl;
 
     public Post(int PostId, int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
@@ -17,7 +18,7 @@ public class Post {
     }
 
     public Post(int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
-        PostId = 0; // "created" when post is added to the database
+        PostId = null; // "created" when post is added to the database
         this.PlantId = PlantId;
         this.Age = Age;
         this.PlantName = PlantName;
