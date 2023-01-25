@@ -42,31 +42,31 @@ public class Post {
         return PhotoUrl;
     }
     // all the set methods
-    public void getPostID(int PostId) {
+    public void setPostID(int PostId) {
         this.PostId = PostId;
     }
-    public void getPlantID(int PlantId) {
+    public void setPlantID(int PlantId) {
         this.PlantId = PlantId;
     }
-    public void getAge(int age) {
+    public void setAge(int age) {
         this.Age = Age;
     }
-    public void getPlantName(String PlantName) {
+    public void setPlantName(String PlantName) {
         this.PlantName = PlantName;
     }
-    public void getSpecies(String Species) {
+    public void setSpecies(String Species) {
         this.Species = Species;
     }
-    public void getStatus(String Status) {
+    public void setStatus(String Status) {
         this.Status = Status;
     }
-    public void getNameOfUser(String NameOfUser) {
+    public void setNameOfUser(String NameOfUser) {
         this.NameOfUser = NameOfUser;
     }
-    public void getCaption(String Caption) {
+    public void setCaption(String Caption) {
         this.Caption = Caption;
     }
-    public void getPhotoUrl(String PhotoUrl) {
+    public void setPhotoUrl(String PhotoUrl) {
         this.PhotoUrl = PhotoUrl;
     }
 }
