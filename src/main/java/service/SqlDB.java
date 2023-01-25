@@ -32,15 +32,11 @@ public class SqlDB {
     public void uploadPost(Post post) {
         Connection connect = null;
         try {
-            System.out.println(connectionUrl);
-            System.out.println("HN1: " + hostName);
             connect = DriverManager.getConnection(connectionUrl);
 
             // creating the query
             String query1 = "INSERT INTO Post ([PostID], [PlantID], [Age], [PlantName], [Species], [Status], [NameOfUser], [Caption], [PhotoURL])";
-            System.out.println("Current Query:\n" + query1);
             query1 += " VALUES (" + getValues(post) + ");";
-            System.out.println("Current Query:\n" + query1);
 
             // adding the post to the table
             Statement st = connect.createStatement();
@@ -104,12 +100,12 @@ public class SqlDB {
         ArrayList<String> temp = new ArrayList<>();
         temp.add(Integer.toString(post.getPlantID()));
         temp.add(Integer.toString(post.getAge()));
-        temp.add(post.getPlantName() + "'");
-        temp.add(post.getSpecies() + "'");
-        temp.add(post.getStatus() + "'"); 
-        temp.add(post.getNameOfUser() + "'");
-        temp.add(post.getCaption() + "'");
-        temp.add(post.getPhotoUrl() + "'");
+        temp.add("N'" + post.getPlantName() + "'");
+        temp.add("N'" + post.getSpecies() + "'");
+        temp.add("N'" + post.getStatus() + "'"); 
+        temp.add("N'" + post.getNameOfUser() + "'");
+        temp.add("N'" + post.getCaption() + "'");
+        temp.add("N'" + post.getPhotoUrl() + "'");
 
         String result = "";
         for (int i = 0; i < temp.size(); i++) {
