@@ -35,12 +35,12 @@ public class SqlDB {
             connect = DriverManager.getConnection(connectionUrl);
 
             // creating the query
-            String query1 = "INSERT INTO Post ([PostID], [PlantID], [Age], [PlantName], [Species], [Status], [NameOfUser], [Caption], [PhotoURL])";
+            String query1 = "INSERT INTO Post ([PlantID], [Age], [PlantName], [Species], [Status], [NameOfUser], [Caption], [PhotoURL])";
             query1 += " VALUES (" + getValues(post) + ");";
 
             // adding the post to the table
             Statement st = connect.createStatement();
-            st.execute(query1, Statement.RETURN_GENERATED_KEYS);
+            st.execute(query1, Statement.RETURN_GENERATED_KEYS); // check what this returns
 
             //TODO: get PostID and assigned it
             
