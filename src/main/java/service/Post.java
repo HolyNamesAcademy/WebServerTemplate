@@ -1,7 +1,10 @@
 package service;
+
 public class Post {
-    private int PostId, PlantId, Age;
+    private Integer PostId;
+    private int PlantId, Age;
     private String PlantName, Species, Status, NameOfUser, Caption, PhotoUrl;
+
     public Post(int PostId, int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
         this.PostId = PostId;
         this.PlantId = PlantId;
@@ -13,6 +16,19 @@ public class Post {
         this.Caption = Caption;
         this.PhotoUrl = PhotoUrl;
     }
+
+    public Post(int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
+        PostId = null; // "created" when post is added to the database
+        this.PlantId = PlantId;
+        this.Age = Age;
+        this.PlantName = PlantName;
+        this.Species = Species;
+        this.Status = Status;
+        this.NameOfUser = NameOfUser;
+        this.Caption = Caption;
+        this.PhotoUrl = PhotoUrl;
+    }
+
     // all the get methods
     public int getPostID() {
         return PostId;
@@ -41,6 +57,7 @@ public class Post {
     public String getPhotoUrl() {
         return PhotoUrl;
     }
+
     // all the set methods
     public void setPostID(int PostId) {
         this.PostId = PostId;
@@ -70,5 +87,3 @@ public class Post {
         this.PhotoUrl = PhotoUrl;
     }
 }
-
-
