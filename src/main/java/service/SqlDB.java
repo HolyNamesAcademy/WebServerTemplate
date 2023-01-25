@@ -32,12 +32,15 @@ public class SqlDB {
     public void uploadPost(Post post) {
         Connection connect = null;
         try {
+            System.out.println(connectionUrl);
+            System.out.println("HN1: " + hostName);
             connect = DriverManager.getConnection(connectionUrl);
 
             // creating the query
-            String query1 = "INSERT INTO Post ([PlantID], [Age], [PlantName], [Species], [Status], [NameOfUser], [Caption], [PhotoURL])";
-            String value = getValues(post);
-            query1 += "VALUES (" + value + ");";
+            String query1 = "INSERT INTO Post ([PostID], [PlantID], [Age], [PlantName], [Species], [Status], [NameOfUser], [Caption], [PhotoURL])";
+            System.out.println("Current Query:\n" + query1);
+            query1 += " VALUES (" + getValues(post) + ");";
+            System.out.println("Current Query:\n" + query1);
 
             // adding the post to the table
             Statement st = connect.createStatement();
