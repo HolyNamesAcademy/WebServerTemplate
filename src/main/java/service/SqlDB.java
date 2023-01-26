@@ -40,7 +40,7 @@ public class SqlDB {
 
             // adding the post to the table
             Statement st = connect.createStatement();
-            st.execute(query1, Statement.RETURN_GENERATED_KEYS); // check what this returns
+            st.execute(query1, Statement.RETURN_GENERATED_KEYS); // check what this returns (returns a boolean)
 
             //TODO: get PostID and assigned it
             
