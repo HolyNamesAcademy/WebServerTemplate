@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -34,5 +35,14 @@ public class MainController {
 	HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 	public respHttpResponse<String> getResponse() {return response;}
 	 */
+	
+	@GetMapping("/upload") // change to post later
+	public String uploadPost() {
+		// Post(int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl)
+		Post test = new Post(459, 987, "hi", "kjhgfd", "jgyhtg", "Sophia", "Penguins!", "https://flowermag.com/wp-content/uploads/2018/02/shasta-daisies-becky-1000x669.jpg");
 
+		
+		sqlDB.uploadPost(test);
+		return "index";
+	}
 }
