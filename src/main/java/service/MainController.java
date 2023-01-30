@@ -25,6 +25,17 @@ public class MainController {
 
 	}
 
+	/* function httpGet(Url)
+	{
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "GET", https://house-plants.p.rapidapi.com/common/coralberry, false ); // false for synchronous request
+		xmlHttp.send( https://house-plants.p.rapidapi.com/common/coralberry );
+		return xmlHttp.responseText;
+	}
+	HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+	public respHttpResponse<String> getResponse() {return response;}
+	 */
+	
 	@GetMapping("/upload") // change to post later
 	public String uploadPost() {
 		// Post(int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl)
