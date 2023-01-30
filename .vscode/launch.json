@@ -16,8 +16,7 @@
             "type": "java",
             "name": "Launch Spring",
             "request": "launch",
-            "mainClass": "service.WebServer",
-            "env": {"DB_HOSTNAME": "hnaprojects.database.windows.net", "DB_DB_NAME": "Plantbook", "DB_USER": "hna-admin", "DB_PASSWORD": "HolyNames123"}
+            "mainClass": "service.WebServer"
         }
     ]
 }
