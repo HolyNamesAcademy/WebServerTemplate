@@ -106,11 +106,13 @@
 </nav>
 <img src="https://succulentsplanet.com/wp-content/uploads/2021/01/Copy-of-Copy-of-Untitled-1.jpg" alt="planty">
 <div class="flex-container">
-    <div th:each = "plantPost:${PlantName}" th:each = "capt:${Caption}" th:each = "image:${PhotoURL}">
-        <h2 th:each = "${plantPost.getPlantName()}"> </h2>
-        <img th:each = "${image.getPhotoURL()}" >
-        <h3 th:each = "${capt.getCaption()}"> </h3>
+
+    <div th:each = "plantPost:${posts}">
+        <h2 th:text = "${plantPost.getPlantName()}">Plant Name </h2>
+        <img th:text = "${plantPost.getPhotoURL()}" >
+        <h3 th:text = "${plantPost.getCaption()}">Caption </h3>
     </div>
+
     <div> <h2> Post 2 </h2></div>
     <div> <h2> Post 3 </h2></div>
     <div> <h2> Post 4</h2>
