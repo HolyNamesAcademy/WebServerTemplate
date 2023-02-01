@@ -1,7 +1,7 @@
 package service;
 public class Post {
-    private int PostId, PlantId, Age;
-    private String PlantName, Species, Status, NameOfUser, Caption, PhotoUrl;
+    public int PostId, PlantId, Age;
+    public String PlantName, Species, Status, NameOfUser, Caption, PhotoUrl;
     public Post(int PostId, int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
         this.PostId = PostId;
         this.PlantId = PlantId;
