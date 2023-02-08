@@ -6,10 +6,10 @@ public class Post {
     private String PlantName, Species, Status, NameOfUser, Caption, PhotoUrl;
     
     public Post(int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
-
         //this.PlantId = PlantId;
+    }
 
-    public Post(int PostId, int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
+    public Post(Integer PostId, int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
         this.PostId = PostId;
         this.PlantId = PlantId;
         this.Age = Age;
