@@ -1,7 +1,10 @@
 package service;
+
 public class Post {
-    public int PostId, PlantId, Age;
+    public Integer PostId;
+    public int PlantId, Age;
     public String PlantName, Species, Status, NameOfUser, Caption, PhotoUrl;
+
     public Post(int PostId, int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
         this.PostId = PostId;
         this.PlantId = PlantId;
@@ -13,6 +16,19 @@ public class Post {
         this.Caption = Caption;
         this.PhotoUrl = PhotoUrl;
     }
+
+    public Post(int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
+        PostId = null; // "created" when post is added to the database
+        this.PlantId = PlantId;
+        this.Age = Age;
+        this.PlantName = PlantName;
+        this.Species = Species;
+        this.Status = Status;
+        this.NameOfUser = NameOfUser;
+        this.Caption = Caption;
+        this.PhotoUrl = PhotoUrl;
+    }
+
     // all the get methods
     public int getPostID() {
         return PostId;
@@ -41,34 +57,33 @@ public class Post {
     public String getPhotoUrl() {
         return PhotoUrl;
     }
+
     // all the set methods
-    public void getPostID(int PostId) {
+    public void setPostID(int PostId) {
         this.PostId = PostId;
     }
-    public void getPlantID(int PlantId) {
+    public void setPlantID(int PlantId) {
         this.PlantId = PlantId;
     }
-    public void getAge(int age) {
+    public void setAge(int age) {
         this.Age = Age;
     }
-    public void getPlantName(String PlantName) {
+    public void setPlantName(String PlantName) {
         this.PlantName = PlantName;
     }
-    public void getSpecies(String Species) {
+    public void setSpecies(String Species) {
         this.Species = Species;
     }
-    public void getStatus(String Status) {
+    public void setStatus(String Status) {
         this.Status = Status;
     }
-    public void getNameOfUser(String NameOfUser) {
+    public void setNameOfUser(String NameOfUser) {
         this.NameOfUser = NameOfUser;
     }
-    public void getCaption(String Caption) {
+    public void setCaption(String Caption) {
         this.Caption = Caption;
     }
-    public void getPhotoUrl(String PhotoUrl) {
+    public void setPhotoUrl(String PhotoUrl) {
         this.PhotoUrl = PhotoUrl;
     }
 }
-
-
