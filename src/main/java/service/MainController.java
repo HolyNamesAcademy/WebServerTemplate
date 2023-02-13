@@ -47,6 +47,14 @@ public class MainController {
 		sqlDB.uploadPost(test);
 		return "index";
 	}
+/*
+	loop to pull from database
+	for(i=ArrayList<>.size(); i>ArrayList<>.size()-5; i--){
+
+
+	}
+ */
+
 
 	@GetMapping("/feed")
 	public String feed(@RequestParam(name="Clarence", required=false, defaultValue="planty") String name, Model model){
