@@ -43,6 +43,11 @@ public class MainController {
 		// Post(int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl)
 		Post test = new Post(459, 987, "hi", "kjhgfd", "jgyhtg", "Sophia", "Penguins!", "https://flowermag.com/wp-content/uploads/2018/02/shasta-daisies-becky-1000x669.jpg");
 
+
+		sqlDB.uploadPost(test);
+		return "index";
+	}
+
 	@GetMapping("/feed")
 	public String feed(@RequestParam(name="Clarence", required=false, defaultValue="planty") String name, Model model){
 		model.addAttribute("Clarence", name);
