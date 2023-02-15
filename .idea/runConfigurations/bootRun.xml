@@ -3,7 +3,10 @@
     <ExternalSystemSettings>
       <option name="env">
         <map>
-          <entry key="db.hostname" value="${DB_HOSTNAME:} db.db_name=${DB_DB_NAME:} db.user=${DB_USER:} db.password=${DB_PASSWORD:}" />
+          <entry key="DB_DB_NAME" value="Plantbook" />
+          <entry key="DB_HOSTNAME" value="hnaprojects.database.windows.net" />
+          <entry key="DB_PASSWORD" value="HolyNames123" />
+          <entry key="DB_USER" value="hna-admin" />
         </map>
       </option>
       <option name="executionName" />

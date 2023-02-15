@@ -57,6 +57,12 @@ public class MainController {
 		ArrayList<Post> posts = new ArrayList<>();
 		posts.add(plant);
 		model.addAttribute(posts);
+
+		ArrayList<Post> posts = new ArrayList<Post>();
+		posts = sqlDB.viewPosts();
+		posts.add(plant1);
+		posts.add(plant2);
+		model.addAttribute("posts", posts);
 		return "/feed";
 	}
 
