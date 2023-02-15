@@ -26,8 +26,8 @@
     <h1>PlantBook</h1>
 <form action="#" th:action="@{/uploadPage}" method="post" th:object="${post}">
     <div class = "Picture">
-        <input type="file" name="photo" class="file" accept="image/*">
-        <label  </label>
+        <label class="form-label" for="customFile"> Upload File </label>
+        <input type="file" class="file" id="customFile" accept="image/*" th:field="*{PhotoUrl}">
         <!--<label> Insert Photo URL:</label><br>
         <input type ="text" th:field="*{PhotoUrl}" required > -->
     </div>
