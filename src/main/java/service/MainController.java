@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.HashMap;
 
 @Controller
 public class MainController {
@@ -77,4 +77,20 @@ public class MainController {
 		model.addAttribute("posts", posts);
 		return "/feed";
 	}
+
+	/*
+	@GetMapping("/feed") // Elizabeth's testing for viewPost (not working)
+	public String feed(@RequestParam(name="Clarence", required=false, defaultValue="planty") String name, Model model){
+		model.addAttribute("Clarence", name);
+		HashMap<Integer, Post> post = sqlDB.viewPosts();
+
+		ArrayList<Post> posts = new ArrayList<>();
+		for (int i = 0; i < post.size(); i++) {
+			posts.add(post.get(i));
+		}
+
+		model.addAttribute("posts", posts);
+		return "/feed";
+	}
+	*/
 }
