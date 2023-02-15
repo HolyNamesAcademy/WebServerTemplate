@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Controller
 public class MainController {
@@ -38,16 +39,6 @@ public class MainController {
 	public respHttpResponse<String> getResponse() {return response;}
 	 */
 
-	@GetMapping("/upload") // change to post later
-	public String uploadPost() {
-		// Post(int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl)
-		Post test = new Post(459, 987, "hi", "kjhgfd", "jgyhtg", "Sophia", "Penguins!", "https://flowermag.com/wp-content/uploads/2018/02/shasta-daisies-becky-1000x669.jpg");
-
-
-		sqlDB.uploadPost(test);
-		return "index";
-	}
-
 	@GetMapping("/feed")
 	public String feed(@RequestParam(name="Clarence", required=false, defaultValue="planty") String name, Model model){
 		model.addAttribute("Clarence", name);
@@ -60,4 +51,20 @@ public class MainController {
 		model.addAttribute("posts", posts);
 		return "/feed";
 	}
+
+	/*
+	@GetMapping("/feed") // Elizabeth's testing for viewPost (not working)
+	public String feed(@RequestParam(name="Clarence", required=false, defaultValue="planty") String name, Model model){
+		model.addAttribute("Clarence", name);
+		HashMap<Integer, Post> post = sqlDB.viewPosts();
+
+		ArrayList<Post> posts = new ArrayList<>();
+		for (int i = 0; i < post.size(); i++) {
+			posts.add(post.get(i));
+		}
+
+		model.addAttribute("posts", posts);
+		return "/feed";
+	}
+	*/
 }

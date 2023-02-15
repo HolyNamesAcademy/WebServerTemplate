@@ -3,6 +3,7 @@ package service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+import java.util.HashMap;
 import java.util.ArrayList;
 import java.sql.*;
 
@@ -40,23 +41,43 @@ public class SqlDB {
 
             // adding the post to the table
             Statement st = connect.createStatement();
-            st.execute(query1, Statement.RETURN_GENERATED_KEYS); // check what this returns (returns a boolean)
-
-            //TODO: get PostID and assigned it
-            
+            st.execute(query1, Statement.RETURN_GENERATED_KEYS);          
         } catch (Exception e) {
             System.err.println("Got an error in tags query! ");
             System.err.println(e.getMessage());
         }
     }
 
-    public ArrayList<Post> viewPosts() {
+    public HashMap<Integer, Post> viewPosts() {
         Connection connect = null;
 
-        ArrayList<Post> posts = new ArrayList<>();
+        HashMap<Integer, Post> posts = new HashMap<>(); // key = postID, value = post
 
         try {
             connect = DriverManager.getConnection(connectionUrl);
+
+            Statement st = connect.createStatement();
+            ResultSet rs = st.executeQuery("Select * from Post");
+            
+            while (rs.next()) {
+                Integer postID = rs.getInt("PostID");
+                Post post = new Post(postID, rs.getInt("PlantID"), 
+                rs.getInt("Age"), rs.getString("PlantName"), 
+                rs.getString("Species"), rs.getString("Status"), 
+                rs.getString("NameOfUser"), rs.getString("Caption"), 
+                rs.getString("PhotoURL"));
+
+                posts.put(postID, post);
+
+            }
+            /*
+            ResultSet rstest = st.getResultSet();
+            rstest.afterLast();
+            GETLASTINSERTED:
+            while(rstest.previous()){
+                System.out.println(rstest.getObject(1));
+                break GETLASTINSERTED;//to read only the last row
+            } */
 
         } catch (Exception e) {
             System.err.println("Got an error in tags query! ");
