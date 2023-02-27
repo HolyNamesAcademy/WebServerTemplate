@@ -52,7 +52,7 @@ public class SqlDB {
      * Retrieve all the posts from the database
      * @return - returns a TreeMap (key = postID, value = post)
      */ 
-    public TreeMap<Integer, Post> viewPosts() {
+    public TreeMap<Integer, Post> viewAllPosts() {
         Connection connect = null;
 
         TreeMap<Integer, Post> posts = new TreeMap<>();
@@ -71,6 +71,35 @@ public class SqlDB {
                 rs.getString("PhotoURL"));
 
                 posts.put(postID, post);
+            }
+        } catch (Exception e) {
+            System.err.println("Got an error in tags query! ");
+            System.err.println(e.getMessage());
+        }
+        return posts;
+    }
+
+    public TreeMap<Integer, Post> viewAllPostsBy(String NameOfUser) {
+        Connection connect = null;
+
+        TreeMap<Integer, Post> posts = new TreeMap<>();
+
+        try {
+            connect = DriverManager.getConnection(connectionUrl);
+            Statement st = connect.createStatement();
+            ResultSet rs = st.executeQuery("Select * from Post");
+            
+            while (rs.next()) {
+                Integer postID = rs.getInt("PostID");
+                Post post = new Post(postID, rs.getInt("PlantID"), 
+                rs.getInt("Age"), rs.getString("PlantName"), 
+                rs.getString("Species"), rs.getString("Status"), 
+                rs.getString("NameOfUser"), rs.getString("Caption"), 
+                rs.getString("PhotoURL"));
+
+                if (post.getNameOfUser().equals(NameOfUser)) {
+                    posts.put(postID, post);
+                }
             }
         } catch (Exception e) {
             System.err.println("Got an error in tags query! ");
