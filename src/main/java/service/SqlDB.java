@@ -79,6 +79,11 @@ public class SqlDB {
         return posts;
     }
 
+    /*
+     * Retrieve all the posts from the database by a certain user
+     * @param line - takes the name of user that you would like to see all post by that user
+     * @return - returns a TreeMap (key = postID, value = post)
+     */ 
     public TreeMap<Integer, Post> viewAllPostsBy(String NameOfUser) {
         Connection connect = null;
 
