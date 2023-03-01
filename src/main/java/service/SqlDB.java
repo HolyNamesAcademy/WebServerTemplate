@@ -122,9 +122,21 @@ public class SqlDB {
         try {
             connect = DriverManager.getConnection(connectionUrl);
 
-            String query1 = "DELETE FROM Post WHERE PostID=" + postID;
+            String query1 = "DELETE FROM DeletedPost WHERE PostID=" + postID;
 
             Statement st = connect.createStatement();
+            ResultSet rs = st.executeQuery(query1);
+
+            Post post = new Post(rs.getInt("PostID"), rs.getInt("PlantID"), 
+                        rs.getInt("Age"), rs.getString("PlantName"), 
+                        rs.getString("Species"), rs.getString("Status"), 
+                        rs.getString("NameOfUser"), rs.getString("Caption"), 
+                        rs.getString("PhotoURL"));
+
+            // creating the query
+            String query2 = "INSERT INTO DeletedPost ([PlantID], [Age], [PlantName], [Species], [Status], [NameOfUser], [Caption], [PhotoURL])";
+            query1 += " VALUES (" + getValues(post) + ");";
+
             st.execute(query1, Statement.RETURN_GENERATED_KEYS);
         } catch (Exception e) {
             System.err.println("Got an error in tags query! ");
