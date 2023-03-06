@@ -3,6 +3,7 @@ package service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+import java.util.TreeMap;
 import java.util.ArrayList;
 import java.sql.*;
 
@@ -27,7 +28,7 @@ public class SqlDB {
 
     /*
      * Take created post information and add it into the database
-     * @param line - 
+     * @param line - takes Post object
      */ 
     public void uploadPost(Post post) {
         Connection connect = null;
@@ -40,43 +41,55 @@ public class SqlDB {
 
             // adding the post to the table
             Statement st = connect.createStatement();
-            st.execute(query1, Statement.RETURN_GENERATED_KEYS); // check what this returns (returns a boolean)
-
-            //TODO: get PostID and assigned it
-            
+            st.execute(query1, Statement.RETURN_GENERATED_KEYS);          
         } catch (Exception e) {
             System.err.println("Got an error in tags query! ");
             System.err.println(e.getMessage());
         }
     }
 
-    public ArrayList<Post> viewPosts() {
+    /*
+     * Retrieve all the posts from the database
+     * @return - returns a TreeMap (key = postID, value = post)
+     */ 
+    public TreeMap<Integer, Post> viewPosts() {
         Connection connect = null;
 
-        ArrayList<Post> posts = new ArrayList<>();
+        TreeMap<Integer, Post> posts = new TreeMap<>();
 
         try {
             connect = DriverManager.getConnection(connectionUrl);
+            Statement st = connect.createStatement();
+            ResultSet rs = st.executeQuery("Select * from Post");
+            
+            while (rs.next()) {
+                Integer postID = rs.getInt("PostID");
+                Post post = new Post(postID, rs.getInt("PlantID"), 
+                rs.getInt("Age"), rs.getString("PlantName"), 
+                rs.getString("Species"), rs.getString("Status"), 
+                rs.getString("NameOfUser"), rs.getString("Caption"), 
+                rs.getString("PhotoURL"));
 
+                posts.put(postID, post);
+            }
         } catch (Exception e) {
             System.err.println("Got an error in tags query! ");
             System.err.println(e.getMessage());
         }
-
         return posts;
     }
 
-    public void deletePosts(Post post) {
+     /*
+     * Find the row with matching postID and delete it from the database
+     * @param line - takes an int for postID
+     */ 
+    public void deletePosts(int postID) {
         Connection connect = null;
         try {
             connect = DriverManager.getConnection(connectionUrl);
 
-            // creating the query
-            String query1 = "DELETE FROM Post WHERE PostID=" + post.getPostID() + 
-            ", PlantID=" + post.getPlantID() + ", Age=" + post.getAge() + 
-            ", PlantName=" + post.getPlantName() + " Species, Status, NameOfUser, Caption, PhotoURL";
+            String query1 = "DELETE FROM Post WHERE PostID=" + postID;
 
-            // deleting the post to the table
             Statement st = connect.createStatement();
             st.execute(query1, Statement.RETURN_GENERATED_KEYS);
         } catch (Exception e) {
@@ -85,11 +98,16 @@ public class SqlDB {
         }
     }
 
-    public void updatePosts() {
+    /*
+     * Update the caption of the post (edit function)
+     * @param line - the id of the post to change caption, the new caption
+     */ 
+    public void updatePosts(int postID, String caption) {
         Connection connect = null;
         try {
             connect = DriverManager.getConnection(connectionUrl);
 
+            String query = "UPDATE Post SET Caption = '" + caption + "' WHERE PostID = " + postID;
         } catch (Exception e) {
             System.err.println("Got an error in tags query! ");
             System.err.println(e.getMessage());

@@ -5,7 +5,7 @@ public class Post {
     public int PlantId, Age;
     public String PlantName, Species, Status, NameOfUser, Caption, PhotoUrl;
 
-    public Post(int PostId, int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
+    public Post(Integer PostId, int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
         this.PostId = PostId;
         this.PlantId = PlantId;
         this.Age = Age;
@@ -16,6 +16,18 @@ public class Post {
         this.Caption = Caption;
         this.PhotoUrl = PhotoUrl;
     }
+
+   public Post(){
+        PostId = null;
+        PlantId = 0; 
+        Age = 0;
+        PlantName = "";
+        Species = "";
+        Status = "";
+        NameOfUser = "";
+        Caption = "";
+        PhotoUrl = "";
+    }   
 
     public Post(int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
         PostId = null; // "created" when post is added to the database
@@ -65,7 +77,7 @@ public class Post {
     public void setPlantID(int PlantId) {
         this.PlantId = PlantId;
     }
-    public void setAge(int age) {
+    public void setAge(int Age) {
         this.Age = Age;
     }
     public void setPlantName(String PlantName) {
@@ -85,5 +97,10 @@ public class Post {
     }
     public void setPhotoUrl(String PhotoUrl) {
         this.PhotoUrl = PhotoUrl;
+    }
+
+    @Override
+    public String toString(){
+        return "Post [ Photo URL=" + PhotoUrl + ", Plant Type=" + Species + ", Age=" + Age + ", Caption=" + Caption + ", Life Status=" + Status + "]";
     }
 }

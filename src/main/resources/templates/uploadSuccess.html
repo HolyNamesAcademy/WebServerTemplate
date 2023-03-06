@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Success</title>
+  <style type="text/css">
+  </style>
+</head>
+<body>
+<div align="center">
+  <h2> Upload Succeeded!</h2>
+  <span>Photo: </span><img th:src="${post.PhotoUrl}" width="1000" height="500" > <br/>
+  <span>Age: </span><span th:text="${post.Age}"></span><br/>
+  <span>User Name: </span><span th:text="${post.NameOfUser}"></span><br/>
+  <span>Plant Name: </span><span th:text="${post.PlantName}"></span><br/>
+  <span>Species: </span><span th:text="${post.Species}"></span><br/>
+  <span>Status: </span><span th:text="${post.Status}"></span><br/>
+  <span>Caption: </span></span><span th:text="${post.Caption}"></span><br/>
+</div>
+</body>
+</html>
