@@ -28,7 +28,7 @@ public class SqlDB {
 
     /*
      * Take created post information and add it into the database
-     * @param line - takes Post object
+     * @param line - takes Post object that you want to add to the database
      */ 
     public void uploadPost(Post post) {
         Connection connect = null;
@@ -62,7 +62,7 @@ public class SqlDB {
             Statement st = connect.createStatement();
             ResultSet rs = st.executeQuery("Select * from Post");
             
-            while (rs.next()) {
+            while (rs.next()) { // loop through the data table until no more
                 Integer postID = rs.getInt("PostID");
                 Post post = new Post(postID, rs.getInt("PlantID"), 
                 rs.getInt("Age"), rs.getString("PlantName"), 
@@ -94,7 +94,7 @@ public class SqlDB {
             Statement st = connect.createStatement();
             ResultSet rs = st.executeQuery("Select * from Post");
             
-            while (rs.next()) {
+            while (rs.next()) { // loop through the data table until no more
                 Integer postID = rs.getInt("PostID");
                 Post post = new Post(postID, rs.getInt("PlantID"), 
                 rs.getInt("Age"), rs.getString("PlantName"), 
@@ -125,7 +125,7 @@ public class SqlDB {
             String query1 = "DELETE FROM Post WHERE PostID=" + postID;
 
             Statement st = connect.createStatement();
-            /* for later if we ever wanna implement a deleted table
+            /* for later if we ever want to implement a deleted table, currently giving an error
             ResultSet rs = st.execute(query1);
 
             Post post = new Post(rs.getInt("PostID"), rs.getInt("PlantID"), 
