@@ -55,7 +55,6 @@ public class MainController {
 
 	@GetMapping ("/delete")
 	public String delete(Model m){
-		Post post = new Post(); // needs arguments but if i keep the default then the upload success page doesn't work
 		sqlDB.deletePosts(6);
 
 		return "index";
