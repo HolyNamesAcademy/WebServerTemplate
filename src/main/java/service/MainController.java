@@ -53,6 +53,14 @@ public class MainController {
 		return "uploadSuccess";
 	}
 
+	@GetMapping ("/delete")
+	public String delete(Model m){
+		Post post = new Post(); // needs arguments but if i keep the default then the upload success page doesn't work
+		sqlDB.deletePosts(6);
+
+		return "index";
+	}
+
 	/* function httpGet(Url)
 	{
 		var xmlHttp = new XMLHttpRequest();
