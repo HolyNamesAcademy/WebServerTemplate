@@ -52,7 +52,7 @@ public class SqlDB {
      * Retrieve all the posts from the database
      * @return - returns a TreeMap (key = postID, value = post)
      */ 
-    public TreeMap<Integer, Post> viewPosts() {
+    public TreeMap<Integer, Post> viewAllPosts() {
         Connection connect = null;
 
         TreeMap<Integer, Post> posts = new TreeMap<>();
@@ -79,6 +79,40 @@ public class SqlDB {
         return posts;
     }
 
+    /*
+     * Retrieve all the posts from the database by a certain user
+     * @param line - takes the name of user that you would like to see all post by that user
+     * @return - returns a TreeMap (key = postID, value = post)
+     */ 
+    public TreeMap<Integer, Post> viewAllPostsBy(String NameOfUser) {
+        Connection connect = null;
+
+        TreeMap<Integer, Post> posts = new TreeMap<>();
+
+        try {
+            connect = DriverManager.getConnection(connectionUrl);
+            Statement st = connect.createStatement();
+            ResultSet rs = st.executeQuery("Select * from Post");
+            
+            while (rs.next()) {
+                Integer postID = rs.getInt("PostID");
+                Post post = new Post(postID, rs.getInt("PlantID"), 
+                rs.getInt("Age"), rs.getString("PlantName"), 
+                rs.getString("Species"), rs.getString("Status"), 
+                rs.getString("NameOfUser"), rs.getString("Caption"), 
+                rs.getString("PhotoURL"));
+
+                if (post.getNameOfUser().equals(NameOfUser)) {
+                    posts.put(postID, post);
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("Got an error in tags query! ");
+            System.err.println(e.getMessage());
+        }
+        return posts;
+    }
+
      /*
      * Find the row with matching postID and delete it from the database
      * @param line - takes an int for postID
@@ -91,7 +125,21 @@ public class SqlDB {
             String query1 = "DELETE FROM Post WHERE PostID=" + postID;
 
             Statement st = connect.createStatement();
+            /* for later if we ever wanna implement a deleted table
+            ResultSet rs = st.execute(query1);
+
+            Post post = new Post(rs.getInt("PostID"), rs.getInt("PlantID"), 
+                        rs.getInt("Age"), rs.getString("PlantName"), 
+                        rs.getString("Species"), rs.getString("Status"), 
+                        rs.getString("NameOfUser"), rs.getString("Caption"), 
+                        rs.getString("PhotoURL"));
+
+            // creating the query
+            String query2 = "INSERT INTO DeletedPost ([PlantID], [Age], [PlantName], [Species], [Status], [NameOfUser], [Caption], [PhotoURL])";
+            query1 += " VALUES (" + getValues(post) + ");";
+
             st.execute(query1, Statement.RETURN_GENERATED_KEYS);
+            */
         } catch (Exception e) {
             System.err.println("Got an error in tags query! ");
             System.err.println(e.getMessage());
