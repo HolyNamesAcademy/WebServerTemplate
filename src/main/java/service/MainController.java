@@ -84,7 +84,7 @@ public class MainController {
 		model.addAttribute(posts);
 
 		TreeMap<Integer, Post> post = sqlDB.viewAllPosts();
-		for (Post plant : post.values()) { // the starting index in P
+		for (Post plant : post.values()) { // enhanced for to loop through all the post and put into an array
 			posts.add(plant);
 			System.out.print(plant.PlantName);
 			System.out.print(plant.PhotoUrl);
