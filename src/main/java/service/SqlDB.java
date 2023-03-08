@@ -56,7 +56,7 @@ public class SqlDB {
         Connection connect = null;
 
         TreeMap<Integer, Post> posts = new TreeMap<>();
-
+        
         try {
             connect = DriverManager.getConnection(connectionUrl);
             Statement st = connect.createStatement();
