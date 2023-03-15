@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -37,7 +39,7 @@ public class MainController {
 		return "uploadPage";
 	}
 	@PostMapping("/uploadPage")
-	public String submitUploadPage(@ModelAttribute("post") Post post, Model m){
+	public String submitUploadPage(@ModelAttribute("post") Post post, Model m, @RequestParam MultipartFile f ){
 		m.addAttribute("Age", post.getAge());
 		m.addAttribute("PlantName", post.getPlantName());
 		m.addAttribute("Species", post.getSpecies());
@@ -45,6 +47,17 @@ public class MainController {
 		m.addAttribute("Caption", post.getCaption());
 		m.addAttribute("PhotoUrl", post.getPhotoUrl());
 		System.out.print(post);
+		BlobServiceClient b = new BlobServiceClient();
+		String url;
+		try{
+			url = b.BlobServiceClient(f);
+		}catch(IOException e){
+			e.printStackTrace();
+			url = "didnt work";
+		}
+		post.setPhotoUrl(url);
+
 		return "uploadSuccess";
+
 	}
 }
