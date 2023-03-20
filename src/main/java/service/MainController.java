@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.*;
 
 @Controller
 public class MainController {
@@ -26,7 +27,10 @@ public class MainController {
 	@GetMapping("/hello")
 	public String hello(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
 		model.addAttribute("name", name);
-		return "hello";}
+
+		return "hello";
+	}
+
 	@GetMapping ("/uploadPage")
 	public String uploadPage(Model m){
 		Post post = new Post(); // needs arguments but if i keep the default then the upload success page doesn't work
@@ -38,6 +42,7 @@ public class MainController {
 
 		return "uploadPage";
 	}
+
 	@PostMapping("/uploadPage")
 	public String submitUploadPage(@ModelAttribute("post") Post post, Model m, @RequestParam MultipartFile f ){
 		m.addAttribute("Age", post.getAge());
@@ -57,7 +62,44 @@ public class MainController {
 		}
 		post.setPhotoUrl(url);
 
+
+		sqlDB.uploadPost(post);
 		return "uploadSuccess";
 
 	}
+
+	@GetMapping ("/delete") // delete testing, works (just need to implement button)
+	public String delete(Model m){
+		sqlDB.deletePosts(6);
+
+		return "index";
+	}
+
+	@GetMapping("/feed")
+	public String feed(@RequestParam(name="Clarence", required=false, defaultValue="planty") String name, Model model){
+		model.addAttribute("Clarence", name);
+		ArrayList<Post> posts = new ArrayList<>();
+
+		TreeMap<Integer, Post> data = sqlDB.viewAllPosts();
+		for (Post plant : data.values()) { // enhanced for to loop through all the post and put into an array
+			posts.add(plant);
+			System.out.print(plant.PlantName);
+			System.out.print(plant.PhotoUrl);
+			System.out.println(plant.Caption);
+		}
+
+		model.addAttribute("posts", posts);
+		return "/feed";
+	}
+
+	/* function httpGet(Url)
+	{
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "GET", https://house-plants.p.rapidapi.com/common/coralberry, false ); // false for synchronous request
+		xmlHttp.send( https://house-plants.p.rapidapi.com/common/coralberry );
+		return xmlHttp.responseText;
+	}
+	HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+	public respHttpResponse<String> getResponse() {return response;}
+	 */
 }

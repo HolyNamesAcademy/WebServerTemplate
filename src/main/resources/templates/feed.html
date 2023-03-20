@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PlantBook: Main Feed</title>
+
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        h1 {
+        color: rgb(74, 4, 4);
+        opacity: 0.7;
+        font-size: 30px;
+        margin-top: 60px;
+        margin-bottom: 50px;
+        margin-right: 35px;
+        margin-left: auto;
+        }
+
+        h2 {
+        color: rgb(74, 4, 4);
+        opacity: 1.0;
+        font-size: 25px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 20px;
+        text-align: left;
+        }
+
+        h3 {
+        color: rgb(74, 4, 4);
+        opacity: 1.0;
+        font-size: 20px;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        margin-left: 15px;
+        text-align: left;
+        }
+
+        img {
+        margin-top:0;
+        margin-bottom:5;
+        margin-right: 25px;
+        margin-left: auto;
+        max-width: 100%;
+        max-height: 100%;
+        }
+
+        button1 {
+
+
+        }
+
+        body{
+        font-family: Arial, sans-serif;
+        background-color: rgb(74, 4, 4, 0.7); }
+
+        .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+
+        height: content;
+        flex-direction: row;
+        flex-flow: row wrap;
+        flex-basis:100%;
+        justify-content: space-around;
+        align-items: flex-start;
+        background-color: rgb(252, 251, 244);
+
+        }
+
+        .flex-container > div {
+        background-color: #f1f1f1;
+        width: 30%;
+        margin: 10px;
+        text-align: center;
+        line-height: 75px;
+        font-size: 30px;
+}
+    </style>
+    </head>
+
+
+
+
+
+<body>
+<h1> Say hi to some plants! </h1>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">PlantBook</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Feed</a></li>
+            <li><a href="#">Personal</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="/uploadPage">Upload</a></li>
+        </ul>
+    </div>
+</nav>
+<img src="https://succulentsplanet.com/wp-content/uploads/2021/01/Copy-of-Copy-of-Untitled-1.jpg" alt="planty">
+<div class="flex-container">
+
+    <div th:each = "plantPost:${posts}">
+        <h2 th:text = "${plantPost.getPlantName()}">Plant Name </h2>
+        <img th:text = "${plantPost.getPhotoUrl()}" >
+        <h3 th:text = "${plantPost.getCaption()}">Caption </h3>
+    </div>
+
+    <div> <h2> Post 2 </h2></div>
+    <div> <h2> Post 3 </h2></div>
+    <div> <h2> Post 4</h2>
+        <img src="https://succulentsplanet.com/wp-content/uploads/2021/01/Copy-of-Copy-of-Untitled-1.jpg" alt="planty"></div>
+    <div> <h2> Post 5</h2></div>
+
+</div>
+</body>
+</html>
