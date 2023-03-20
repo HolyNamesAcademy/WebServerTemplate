@@ -38,7 +38,7 @@ public class MainController {
 
 		return "uploadPage";
 	}
-	
+
 	@PostMapping("/uploadPage")
 	public String submitUploadPage(@ModelAttribute("post") Post post, Model m){
 		m.addAttribute("Age", post.getAge());
@@ -53,6 +53,30 @@ public class MainController {
 		return "uploadSuccess";
 	}
 
+	@GetMapping ("/delete") // delete testing, works (just need to implement button)
+	public String delete(Model m){
+		sqlDB.deletePosts(6);
+
+		return "index";
+	}
+
+	@GetMapping("/feed")
+	public String feed(@RequestParam(name="Clarence", required=false, defaultValue="planty") String name, Model model){
+		model.addAttribute("Clarence", name);
+		ArrayList<Post> posts = new ArrayList<>();
+
+		TreeMap<Integer, Post> data = sqlDB.viewAllPosts();
+		for (Post plant : data.values()) { // enhanced for to loop through all the post and put into an array
+			posts.add(plant);
+			System.out.print(plant.PlantName);
+			System.out.print(plant.PhotoUrl);
+			System.out.println(plant.Caption);
+		}
+
+		model.addAttribute("posts", posts);
+		return "/feed";
+	}
+	
 	/* function httpGet(Url)
 	{
 		var xmlHttp = new XMLHttpRequest();
@@ -63,33 +87,4 @@ public class MainController {
 	HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 	public respHttpResponse<String> getResponse() {return response;}
 	 */
-
-	@GetMapping("/feed")
-	public String feed(@RequestParam(name="Clarence", required=false, defaultValue="planty") String name, Model model){
-		model.addAttribute("Clarence", name);
-		Post plant1 = new Post(01, 01, 00, "plantbert", "green", "not green", "Alana", "pretty dead", "https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1627197230/vendor/2864/catalog/product/2/0/20200304122155_file_5e5ef4a3ccb60_5e5ef7b7cd5fa_600b664eac11a._600b6650be20c..jpg");
-		Post plant2 = new Post(02, 02, 00, "Belle-adona", "~~blue belle*&^$#@", "livin' life to the fullest", "Alana", "IM BLUE`*%@^!", "https://www.woodlandtrust.org.uk/media/4272/bluebells-close-up-wtml-1024791-web-upload.jpg");
-
-		ArrayList<Post> posts = new ArrayList<>();
-		posts.add(plant1);
-		posts.add(plant2);
-		model.addAttribute("posts", posts);
-		return "/feed";
-	}
-
-	/*
-	@GetMapping("/feed") // Elizabeth's testing for viewPost (not working)
-	public String feed(@RequestParam(name="Clarence", required=false, defaultValue="planty") String name, Model model){
-		model.addAttribute("Clarence", name);
-		HashMap<Integer, Post> post = sqlDB.viewPosts();
-
-		ArrayList<Post> posts = new ArrayList<>();
-		for (int i = 0; i < post.size(); i++) {
-			posts.add(post.get(i));
-		}
-
-		model.addAttribute("posts", posts);
-		return "/feed";
-	}
-	*/
 }

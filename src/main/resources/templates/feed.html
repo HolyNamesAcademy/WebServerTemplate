@@ -58,7 +58,7 @@
 
         body{
         font-family: Arial, sans-serif;
-        //background-color: rgb(74, 4, 4, 0.7); }
+        background-color: rgb(74, 4, 4, 0.7); }
 
         .flex-container {
         display: flex;
@@ -66,11 +66,11 @@
 
         height: content;
         flex-direction: row;
-        //flex-flow: row wrap;
+        flex-flow: row wrap;
         flex-basis:100%;
         justify-content: space-around;
         align-items: flex-start;
-        //background-color: rgb(252, 251, 244);
+        background-color: rgb(252, 251, 244);
 
         }
 
@@ -83,8 +83,8 @@
         font-size: 30px;
 }
     </style>
-    //</head>
-//< style="height:1500px">
+    </head>
+
 
 
 
@@ -100,7 +100,7 @@
             <li class="active"><a href="#">Feed</a></li>
             <li><a href="#">Personal</a></li>
             <li><a href="#">Profile</a></li>
-            <li><a href="#">Upload</a></li>
+            <li><a href="/uploadPage">Upload</a></li>
         </ul>
     </div>
 </nav>
@@ -108,9 +108,9 @@
 <div class="flex-container">
 
     <div th:each = "plantPost:${posts}">
-        <h2 th:text = "${plantPost.PlantName}">Plant Name </h2>
-        <img th:src = "${plantPost.PhotoUrl}" >
-        <h3 th:text = "${plantPost.Caption}">Caption </h3>
+        <h2 th:text = "${plantPost.getPlantName()}">Plant Name </h2>
+        <img th:text = "${plantPost.getPhotoUrl()}" >
+        <h3 th:text = "${plantPost.getCaption()}">Caption </h3>
     </div>
 
     <div> <h2> Post 2 </h2></div>
@@ -118,6 +118,7 @@
     <div> <h2> Post 4</h2>
         <img src="https://succulentsplanet.com/wp-content/uploads/2021/01/Copy-of-Copy-of-Untitled-1.jpg" alt="planty"></div>
     <div> <h2> Post 5</h2></div>
+
 </div>
 </body>
 </html>
