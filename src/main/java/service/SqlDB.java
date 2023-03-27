@@ -32,6 +32,7 @@ public class SqlDB {
      */ 
     public void uploadPost(Post post) {
         Connection connect = null;
+        System.out.print(connectionUrl);
         try {
             connect = DriverManager.getConnection(connectionUrl);
 
