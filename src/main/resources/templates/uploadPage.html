@@ -23,10 +23,10 @@
 <body>
 <div align="center">
     <h1>PlantBook</h1>
-<form action="#" th:action="@{/uploadPage}" method="post" th:object="${post}">
+<form action="#" th:action="@{/uploadPage}" method="post" th:object="${post}" enctype="multipart/form-data">
     <div class = "Picture">
         <label class="form-label" for="customFile"> Upload File </label>
-        <input type="file" class="file" id="customFile" accept="image/*" th:field="*{PhotoUrl}">
+        <input type="file" class="file" id="customFile" accept="image/*" name="f">
         <!--<label> Insert Photo URL:</label><br>
         <input type ="text" th:field="*{PhotoUrl}" required > -->
     </div>
@@ -70,12 +70,12 @@
         <button class="submitButton" type="submit">Upload Post</button>
     </div>
 
-    // delete post button WIP temp loco until feed is more organized
+   <!-- // delete post button WIP temp loco until feed is more organized
     <button onclick="deletePost()"/>button>
     <script>
         function deletePost(){
         this.getPostID.deletePosts();
-        } </script>
+        } </script>-->
 
 </form>
 </div>

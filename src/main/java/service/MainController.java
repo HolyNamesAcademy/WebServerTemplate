@@ -50,7 +50,7 @@ public class MainController {
 		m.addAttribute("Species", post.getSpecies());
 		m.addAttribute("NameOfUser", post.getNameOfUser());
 		m.addAttribute("Caption", post.getCaption());
-		m.addAttribute("PhotoUrl", post.getPhotoUrl());
+		//m.addAttribute("PhotoUrl", post.getPhotoUrl());
 		System.out.print(post);
 		BlobServiceClient b = new BlobServiceClient();
 		String url;

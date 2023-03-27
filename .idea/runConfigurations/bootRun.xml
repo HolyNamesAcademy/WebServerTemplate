@@ -3,12 +3,10 @@
     <ExternalSystemSettings>
       <option name="env">
         <map>
+          <entry key="AccountKey" value="vt4FC40yl8XUUHZxbb1Cu1nb0f9Ij5743o3mWf+POFveaqBoT3tB0PNgrFU1wZpmAJh5tVBDqfGD9yyTbf8UsA==" />
+          <entry key="AccountName" value="hna" />
+          <entry key="DefaultEndpointsProtocol" value="https" />
           <entry key="EndpointSuffix" value="core.windows.net" />
-          <entry key="StorageExporerConnectionString" value="vt4FC40yl8XUUHZxbb1Cu1nb0f9Ij5743o3mWf+POFveaqBoT3tB0PNgrFU1wZpmAJh5tVBDqfGD9yyTbf8UsA==" />
-          <entry key="DB_DB_NAME" value="Plantbook" />
-          <entry key="DB_HOSTNAME" value="hnaprojects.database.windows.net" />
-          <entry key="DB_PASSWORD" value="HolyNames123" />
-          <entry key="DB_USER" value="hna-admin" />
         </map>
       </option>
       <option name="executionName" />
