@@ -92,7 +92,7 @@ public class SqlDB {
         try {
             connect = DriverManager.getConnection(connectionUrl);
             Statement st = connect.createStatement();
-            ResultSet rs = st.executeQuery("Select * from Post");
+            ResultSet rs = st.executeQuery("Select " + NameOfUser + " from Post");
             
             while (rs.next()) { // loop through the data table until no more
                 Integer postID = rs.getInt("PostID");
