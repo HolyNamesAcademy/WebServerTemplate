@@ -1,3 +1,7 @@
+
+- Emery
+
+
 # Java Spring Web Server
 
 This is a Web Server application, modified from the Spring MVC serving web content tutorial repository (found [here](https://github.com/spring-guides/gs-serving-web-content)).
