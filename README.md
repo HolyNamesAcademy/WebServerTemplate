@@ -7,6 +7,7 @@ It implements a bunch of features that are common to all web servers so we can f
 
 ## Team
 -
+- Gabby H.
 
 # Getting Started
 
