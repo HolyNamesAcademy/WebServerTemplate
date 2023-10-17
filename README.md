@@ -6,12 +6,15 @@ Spring is a framework that we use to write our web server.
 It implements a bunch of features that are common to all web servers so we can focus on the portions that unique to our application.
 
 ## Team
+
+- Caitlin Roach
 - Chloe E.
 - Sophie Fong
 - Maddy
 - Natalie 
 - Gabby H.
 - Freya
+
 
 # Getting Started
 
