@@ -1,5 +1,7 @@
+
 # Project Team
 - Maddy
+- Fiona 
 
 # Java Spring Web Server
 
@@ -86,3 +88,5 @@ In order to deploy the app, follow these steps:
    If you forget the link, you can always find it by going to the [Heroku Dashboard](https://dashboard.heroku.com/apps), clicking on your app, and then selecting "Open App".
 
 That's it! You have a working website!  Of course the interesting -- and fun -- part comes next: turning your website into something unique and useful! 
+
+ 
