@@ -1,7 +1,7 @@
-
 # Project Team
 - Maddy
 - Fiona 
+- josie :3
 
 # Java Spring Web Server
 
