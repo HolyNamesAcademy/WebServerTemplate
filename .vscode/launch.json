@@ -15,7 +15,7 @@
             "type": "java",
             "name": "Launch Spring",
             "request": "launch",
-            "mainClass": "service.WebServer"
+            "mainClass": "com.hna.webserver.WebServerApplication"
         }
     ]
 }
