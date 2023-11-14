@@ -1,10 +1,10 @@
-package service;
+package com.hna.webserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WebServerTests {
+class WebserverApplicationTests {
 
 	@Test
 	void contextLoads() {
