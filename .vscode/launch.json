@@ -5,15 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
-            "name": "Attach Spring",
-            "request": "attach",
-            "hostName": "localhost",
-            "port": 5005,
+            "command": "npm start",
+            "name": "Run Frontend",
+            "request": "launch",
+            "type": "node-terminal",
+            "cwd": "${workspaceFolder}/frontend"
         },
         {
             "type": "java",
-            "name": "Launch Spring",
+            "name": "Run Backend",
             "request": "launch",
             "mainClass": "com.hna.webserver.WebServerApplication"
         }
