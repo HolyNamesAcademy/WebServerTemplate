@@ -1,6 +1,9 @@
 import { useState } from 'react';
-
-import './Hello.css';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 const greetingApi = '/api/greeting';
 
@@ -37,14 +40,18 @@ function Hello() {
   };
 
   return (
-    <div className="Hello">
-      <form onSubmit={handleSubmit}>
-        <input name="Name" value={name} onChange={handleChange} />
-        <button type="submit">Submit</button>
-      </form>
+    <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+        <form onSubmit={handleSubmit}>
+          <TextField  id="Name" label="Outlined" variant="outlined" name="Name" value={name} onChange={handleChange} />
+          <Button variant="contained" type="submit">Submit</Button>
+        </form>
 
-      <p>{greeting}</p>
-    </div>
+        <Typography variant="h5" color="text.secondary" gutterBottom>
+          {greeting}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 }
 
