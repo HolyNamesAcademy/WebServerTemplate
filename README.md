@@ -1,9 +1,21 @@
-# Java Spring Web Server
+# HNAMAGOTCHI
 
 This is a Web Server application, modified from the Spring MVC serving web content tutorial repository (found [here](https://github.com/spring-guides/gs-serving-web-content)).
 A Web Server is an application that receives HTTP requests and returns web pages.
 Spring is a framework that we use to write our web server.
 It implements a bunch of features that are common to all web servers so we can focus on the portions that unique to our application.
+
+## Team
+
+- Norah
+- Caitlin Roach
+- Chloe E.
+- Sophie Fong
+- Maddy
+- Natalie 
+- Gabby H.
+- Freya
+
 
 # Getting Started
 
