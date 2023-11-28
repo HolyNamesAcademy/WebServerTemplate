@@ -43,7 +43,7 @@ function Hello() {
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <form onSubmit={handleSubmit}>
-          <TextField  id="Name" label="Outlined" variant="outlined" name="Name" value={name} onChange={handleChange} />
+          <TextField  id="Name" label="Name" variant="outlined" name="Name" value={name} onChange={handleChange} />
           <Button variant="contained" type="submit">Submit</Button>
         </form>
 
