@@ -9,7 +9,10 @@
             "name": "Run Frontend",
             "request": "launch",
             "type": "node-terminal",
-            "cwd": "${workspaceFolder}/frontend"
+            "cwd": "${workspaceFolder}/frontend",
+            "windows": {
+                "bashPath": "C:\\Windows\\sysnative\\bash.exe"
+            }
         },
         {
             "type": "java",
