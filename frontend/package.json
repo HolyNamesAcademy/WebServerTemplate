@@ -30,7 +30,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-app-rewired test",
-    "linting": "eslint ./src/**/* .eslintrc.js",
+    "linting": "eslint .eslintrc.js src --ext .jsx",
     "linting:fix": "npm run linting -- --fix"
   },
   "eslintConfig": {
