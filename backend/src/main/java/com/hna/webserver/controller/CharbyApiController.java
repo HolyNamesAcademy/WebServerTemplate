@@ -1,7 +1,7 @@
 package com.hna.webserver.controller;
 
-import com.hna.webserver.model.User;
-import com.hna.webserver.repository.UserRepository;
+import com.hna.webserver.model.Charby;
+import com.hna.webserver.repository.CharbyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,19 +18,19 @@ import java.util.Optional;
 public class CharbyApiController {
 
 	@Autowired
-	UserRepository userRepository;
+	CharbyRepository CharbyRepository;
 
 	@GetMapping("/charby")
-	public ResponseEntity<List<User>> all() {
-		return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
+	public ResponseEntity<List<Charby>> all() {
+		return new ResponseEntity<>(CharbyRepository.findAll(), HttpStatus.OK);
 	}
 
 	@GetMapping("/charby/{id}")
-	public ResponseEntity<User> one(@PathVariable Long id) {
-		Optional<User> user = userRepository.findById(id);
+	public ResponseEntity<Charby> one(@PathVariable Long id) {
+		Optional<Charby> charby = CharbyRepository.findById(id);
 
-		if (user.isPresent()) {
-			return new ResponseEntity<>(user.get(), HttpStatus.OK);
+		if (charby.isPresent()) {
+			return new ResponseEntity<>(charby.get(), HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
