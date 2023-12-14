@@ -3,8 +3,8 @@ package com.hna.webserver.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "charbies")
+public class Charby {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,11 +13,11 @@ public class User {
     @Column(name = "name")
     private String name;
 
-    public User() {
+    public Charby() {
 
     }
 
-    public User(String name) {
+    public Charby(String name) {
         this.name = name;
     }
 
@@ -35,7 +35,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", name=" + name + "]";
+        return "Charby [id=" + id + ", name=" + name + "]";
     }
 
 }
