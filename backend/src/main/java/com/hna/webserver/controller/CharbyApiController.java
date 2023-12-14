@@ -20,12 +20,12 @@ public class CharbyApiController {
 	@Autowired
 	CharbyRepository CharbyRepository;
 
-	@GetMapping("/charby")
+	@GetMapping("/charbeez")
 	public ResponseEntity<List<Charby>> all() {
 		return new ResponseEntity<>(CharbyRepository.findAll(), HttpStatus.OK);
 	}
 
-	@GetMapping("/charby/{id}")
+	@GetMapping("/charbeez/{id}")
 	public ResponseEntity<Charby> one(@PathVariable Long id) {
 		Optional<Charby> charby = CharbyRepository.findById(id);
 

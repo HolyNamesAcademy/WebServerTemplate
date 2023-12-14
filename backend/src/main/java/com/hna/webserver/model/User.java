@@ -2,6 +2,8 @@ package com.hna.webserver.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -37,5 +39,9 @@ public class User {
     public String toString() {
         return "User [id=" + id + ", name=" + name + "]";
     }
+
+    @OneToMany (mappedBy = "user")
+    private List<Charby> charby;
+
 
 }

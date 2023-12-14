@@ -3,7 +3,7 @@ package com.hna.webserver.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "charbies")
+@Table(name = "charbeez")
 public class Charby {
 
     @Id
@@ -37,5 +37,10 @@ public class Charby {
     public String toString() {
         return "Charby [id=" + id + ", name=" + name + "]";
     }
+
+
+    @ManyToOne
+    @JoinColumn (name = "user_id")
+    private User user;
 
 }
