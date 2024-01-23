@@ -8,6 +8,7 @@
     "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.18",
+    "phaser": "^3.70.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.1",
@@ -30,7 +31,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-app-rewired test",
-    "linting": "eslint .eslintrc.js src --ext .jsx",
+    "linting": "eslint .eslintrc.js src --ext .jsx,js",
     "linting:fix": "npm run linting -- --fix"
   },
   "eslintConfig": {
