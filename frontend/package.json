@@ -10,6 +10,7 @@
     "@mui/material": "^5.14.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -29,7 +30,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-app-rewired test",
-    "linting": "eslint ./src/**/* .eslintrc.js",
+    "linting": "eslint .eslintrc.js src --ext .jsx",
     "linting:fix": "npm run linting -- --fix"
   },
   "eslintConfig": {
