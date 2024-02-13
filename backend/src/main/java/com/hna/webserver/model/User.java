@@ -14,18 +14,27 @@ public class User {
 
     @Column(name = "name")
     private String name;
-    @Column(name = "hnaEmail")
-    private String hnaEmail;
-    @Column(name = "username")
-    private String username;
+
     @Column(name = "password")
     private String password;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "hnaEmail")
+    private String hnaEmail;
+    
+    @Column(name = "username")
+    private String username;
+
     public User() {
 
     }
 
-    public User(String name) {
+    public User(String name, String password, String email) {
         this.name = name;
+        this.password = password; 
+        this.email = email; 
     }
 
     public User(String name, String hnaEmail, String username, String password){
@@ -43,16 +52,18 @@ public class User {
         return name;
     }
 
+    public String getPassword(){
+        return password; 
+    }
+
+    public String getEmail(){
+        return email; 
+    }
+
+
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getUsername() {return username;}
-    public void setUsername(String username) {this.username = username;}
-    public String getHnaEmail() {return hnaEmail;}
-    public void setHnaEmail(String hnaEmail) {this.hnaEmail = hnaEmail;}
-    public String getPassword() {return password;}
-    public void setPassword(String password){this.password = password;}
 
     @Override
     public String toString() {
