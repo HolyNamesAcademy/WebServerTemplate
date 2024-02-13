@@ -23,7 +23,7 @@ public class User {
 
     @Column(name = "hnaEmail")
     private String hnaEmail;
-    
+
     @Column(name = "username")
     private String username;
 
@@ -58,6 +58,10 @@ public class User {
 
     public String getEmail(){
         return email; 
+    }
+
+    public String getUsername(){
+        return username; 
     }
 
 
