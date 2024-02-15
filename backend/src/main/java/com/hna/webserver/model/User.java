@@ -21,9 +21,6 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "hnaEmail")
-    private String hnaEmail;
-
     @Column(name = "username")
     private String username;
 
@@ -37,9 +34,9 @@ public class User {
         this.email = email; 
     }
 
-    public User(String name, String hnaEmail, String username, String password){
+    public User(String name, String email, String username, String password){
         this.name = name;
-        this.hnaEmail = hnaEmail;
+        this.email = email;
         this.username = username;
         this.password = password;
     }
@@ -71,7 +68,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", name=" + name + ", username=" + username+"], " + "password=" + password+", email=" + hnaEmail;
+        return "User [id=" + id + ", name=" + name + ", username=" + username+"], " + "password=" + password+", email=" + email;
     }
 
     @OneToMany (mappedBy = "user")
